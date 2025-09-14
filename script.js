@@ -110,3 +110,61 @@ document.addEventListener('DOMContentLoaded', () => {
   showSlide(0);
   // Note: we intentionally do NOT auto-play music at load to avoid browser autoplay blocking.
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const bgMusic = document.getElementById("bgMusic");
+  const playPauseBtn = document.getElementById("playPauseBtn");
+  const nextTrackBtn = document.getElementById("nextTrackBtn");
+  const muteBtn = document.getElementById("muteBtn");
+
+  // Musiqa fayllari ro‘yxati
+  const tracks = [
+    "./music/educational.mp3",
+    "./music/golos.mp3",
+    "./music/track3.mp3"
+  ];
+  let currentTrack = 0;
+  let isPlaying = false;
+
+  // Trackni yuklash
+  function loadTrack(index) {
+    bgMusic.src = tracks[index];
+    if (isPlaying) {
+      bgMusic.play().catch(() => console.warn("Autoplay bloklandi"));
+    }
+  }
+
+  // Play/Pause
+  playPauseBtn.addEventListener("click", () => {
+    if (isPlaying) {
+      bgMusic.pause();
+      playPauseBtn.textContent = "▶️";
+      isPlaying = false;
+    } else {
+      bgMusic.play().then(() => {
+        playPauseBtn.textContent = "⏸️";
+        isPlaying = true;
+      }).catch(() => console.warn("Play bosishingiz kerak"));
+    }
+  });
+
+  // Keyingi musiqa
+  nextTrackBtn.addEventListener("click", () => {
+    currentTrack = (currentTrack + 1) % tracks.length;
+    loadTrack(currentTrack);
+  });
+
+  // Mute / Unmute
+  muteBtn.addEventListener("click", () => {
+    bgMusic.muted = !bgMusic.muted;
+    muteBtn.textContent = bgMusic.muted ? "🔇" : "🔊";
+  });
+
+  // Track tugasa keyingi qo‘shiq
+  bgMusic.addEventListener("ended", () => {
+    currentTrack = (currentTrack + 1) % tracks.length;
+    loadTrack(currentTrack);
+  });
+
+  // Boshlanishida 1-qo‘shiq yuklanadi
+  loadTrack(currentTrack);
+});

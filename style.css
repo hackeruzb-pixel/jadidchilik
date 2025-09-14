@@ -135,3 +135,25 @@ h2{ margin:0 0 8px 0; font-size:clamp(26px,3.6vw,44px); color:#fff; font-weight:
   .panel.sidebar{ order:2; border-left:none; border-top:1px solid rgba(255,255,255,0.04); border-radius:0 0 12px 12px; }
   .thumbs{ max-height: 220px; }
 }
+.music-player {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.icon-btn {
+  background: #222;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.icon-btn:hover {
+  background: #444;
+  transform: scale(1.1);
+}

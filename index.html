@@ -157,7 +157,14 @@
                 <button class="btn" id="next" title="Keyingi (Arrow Right)">Keyingi ▶</button>
                 <button class="btn primary" id="autoplay" aria-pressed="false" title="Avto-ijro (Space)">▶
                     AutoPlay</button>
-                <button class="btn" id="musicToggle" aria-pressed="false" title="Musiqa (M)">🎵 Musiqa</button>
+                <div class="music-player">
+  <button id="playPauseBtn" class="icon-btn" title="Play/Pause">▶️</button>
+  <button id="nextTrackBtn" class="icon-btn" title="Keyingi musiqa">⏭️</button>
+  <button id="muteBtn" class="icon-btn" title="Ovoz yoqish/o‘chirish">🔊</button>
+</div>
+
+<audio id="bgMusic" preload="auto"></audio>
+
             </div>
 
             <div class="footer-note">
@@ -173,7 +180,6 @@
     </main>
 
     <!-- Local audio file (put music.mp3 in same folder) -->
-    <audio id="bgMusic" src="./educational.mp3" loop preload="none"></audio>
 
     <script src="./script.js"></script>
 </body>
