@@ -251,7 +251,8 @@ h2 {
   color: rgba(255, 255, 255, 0.55);
 }
 .author-note small {
-  color: rgba(255, 255, 255, 0.55);
+  margin-top: 7px;
+  color: rgb(255, 255, 255);
 }
 
 /* Responsive */
