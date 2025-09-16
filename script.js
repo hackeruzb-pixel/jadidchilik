@@ -119,8 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Musiqa fayllari ro‘yxati
   const tracks = [
     "./music/educational.mp3",
-    "./music/golos.mp3",
-    "./music/track3.mp3"
   ];
   let currentTrack = 0;
   let isPlaying = false;
